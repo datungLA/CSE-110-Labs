@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .section {
     display: inline-block;
     width: 100%;
@@ -7,6 +12,13 @@
 .section h1 {
     scroll-margin-top: 138px;
     padding-left: 10px;
+    padding-right: 10px;
+}
+
+.section p {
+    padding-left: 10px;
+    padding-right: 10px;
+
 }
 
 #section1 {
@@ -37,9 +49,9 @@
     background-color: #182b49;
     max-height: 500px;
     overflow-y: scroll;
-    padding: 20px;
     text-align: center;
     width: 100%;
+    padding: 5px;
     box-sizing: border-box;
 }
 
@@ -84,4 +96,31 @@
 
 .navbar img {
     max-width: 400px;
+}
+
+@media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+    .navbar {
+        height: 60px;
+    }
+
+    .navbar li a {
+        display: none;
+    }
+
+    .navbar img {
+        max-width: 75%;
+    }
+
+    .section h1 {
+        font-size: 24px;
+    }
+
+    .section p {
+        font-size: 20px;
+
+    }
+
+    .wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

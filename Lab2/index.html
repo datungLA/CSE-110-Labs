@@ -75,6 +75,23 @@
                                     <p>Label: ${noteType}</p>
                                     `;
         });
+        document.getElementById("title").addEventListener("focus", function () {
+            this.style.backgroundColor = "#e0f7fa";
+        });
+        document.getElementById("title").addEventListener("blur", function () {
+            this.style.backgroundColor = "#";
+        });
+        document.getElementById("content").addEventListener("focus", function () {
+            this.style.backgroundColor = "#e0f7fa";
+        });
+        document.getElementById("content").addEventListener("blur", function () {
+            this.style.backgroundColor = "#";
+        });
+        document.getElementById("title").addEventListener("input", function () {
+            if (title.value.length > 50) {
+                alert('Title cannot exceed 50 characters.')
+            }
+        });
     </script>
 </body>
 

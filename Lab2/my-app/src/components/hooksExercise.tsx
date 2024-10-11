@@ -1,6 +1,6 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { ThemeContext, themes } from './themeContext';
-function ClickCounter() {
+export function ClickCounter() {
     const [count, setCount] = useState(0);
     const theme = useContext(ThemeContext);
     return (
@@ -27,7 +27,10 @@ export function ToggleTheme() {
     const toggleTheme = () => {
         setCurrentTheme(currentTheme === themes.light ? themes.dark : themes.light);
     };
-
+    useEffect(() => {
+        document.body.style.backgroundColor = currentTheme.background;
+        document.body.style.color = currentTheme.foreground;
+    }, [currentTheme]);
     return (
         <ThemeContext.Provider value={currentTheme}>
             <button onClick={toggleTheme}>Toggle Theme</button>

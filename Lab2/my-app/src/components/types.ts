@@ -15,7 +15,7 @@ export type Note = {
 }
 
 export const initialNoteValue: Note = {
-    id: 1,
+    id: -1,
     title: "",
     content: "",
     label: Label.other,

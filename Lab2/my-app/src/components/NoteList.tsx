@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState, Dispatch } from 'react'
 import { Note } from "./types"
-import "./styles.css"
+import "../App.css"
 import SingleNote from './SingleNote'
+import FavoriteList from './FavoriteList'
 type Props = {
     notes: Note[]
     setNotes: React.Dispatch<React.SetStateAction<Note[]>>
@@ -18,6 +19,7 @@ const NoteList = ({ notes, setNotes }: Props) => {
                     }
                 </div>
             </div>
+            <FavoriteList notes={notes} />
         </>
     )
 }

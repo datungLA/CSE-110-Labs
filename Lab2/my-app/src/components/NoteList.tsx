@@ -1,4 +1,3 @@
-import React, { useState, Dispatch } from 'react'
 import { Note } from "./types"
 import "../App.css"
 import SingleNote from './SingleNote'

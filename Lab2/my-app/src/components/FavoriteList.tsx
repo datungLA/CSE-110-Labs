@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Note } from "./types"
 
 type Props = {

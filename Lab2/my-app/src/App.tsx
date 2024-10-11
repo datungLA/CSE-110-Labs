@@ -8,7 +8,6 @@ import { ThemeContext, themes } from './components/themeContext';
 function App() {
   const [note, setNote] = useState<Note>(initialNoteValue);
   const [notes, setNotes] = useState<Note[]>(dummyNoteList.map(note => ({ ...note, isLiked: false, isDone: false })));
-  const [currentTheme, setCurrentTheme] = useState(themes.light);
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
     if (note) {

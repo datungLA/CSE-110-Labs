@@ -1,8 +1,6 @@
-import React from 'react'
 import { Note, Label } from "./types"
 import "../App.css"
-import { ThemeContext } from './themeContext'
-import { ToggleTheme, ClickCounter } from './hooksExercise'
+import { ToggleTheme } from './hooksExercise'
 type Props = {
     note: Note,
     setNote: React.Dispatch<React.SetStateAction<Note>>

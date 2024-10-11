@@ -33,7 +33,7 @@ const SingleNote = ({ note, notes, setNotes }: Props) => {
                         {note.isLiked ? '❤️' : '♡'}
                     </span>
                     <span onClick={handleDelete(note.id)}>
-                        <button>x</button>
+                        x
                     </span>
                 </div>
                 {!edit ? (

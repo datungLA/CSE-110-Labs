@@ -10,14 +10,15 @@ export type Note = {
     title: string;
     content: string;
     label: Label;
-    liked: boolean;
+    isLiked: boolean;
+    isDone: boolean;
 }
 
-export type FavoriteButtonProps = {
-    note: Note;
-    toggleFavorite: (id: number) => void;
-};
-
-export type FavoriteListProps = {
-    notes: Note[];
+export const initialNoteValue: Note = {
+    id: 1,
+    title: "",
+    content: "",
+    label: Label.other,
+    isLiked: false,
+    isDone: false,
 };

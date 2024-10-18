@@ -22,17 +22,18 @@ describe("Create StickyNote", () => {
         const createNoteTitleInput = screen.getByPlaceholderText("Note Title");
         const createNoteContentTextarea =
             screen.getByPlaceholderText("Note Content");
-        const createNoteLabelSelect = screen.getByText("Other");
+        const createNoteLabelSelect = screen.getByText("Other") as HTMLSelectElement;
         const createNoteButton = screen.getByText("Create Note");
 
         fireEvent.change(createNoteTitleInput, { target: { value: "New Note" } });
         fireEvent.change(createNoteContentTextarea, {
             target: { value: "Note content" },
-        }); fireEvent.click(createNoteButton);
-        fireEvent.change(createNoteLabelSelect, { target: { value: Label.personal } });
+        });
+        fireEvent.change(createNoteLabelSelect, { target: { value: Label.work } });
+        fireEvent.click(createNoteButton);
         const newNoteTitle = screen.getByText("New Note");
         const newNoteContent = screen.getByText("Note content");
-        const newNoteLabel = screen.getByText("Personal");
+        const newNoteLabel = screen.getByText("Work");
         expect(newNoteTitle).toBeInTheDocument();
         expect(newNoteContent).toBeInTheDocument();
         expect(newNoteLabel).toBeInTheDocument();
@@ -79,5 +80,17 @@ describe("Create StickyNote", () => {
 
         expect(titleInput).toBeInTheDocument();
         expect(contentInput).toBeInvalid();
+    })
+    test("select different label", () => {
+        render(<StickyNotes />);
+        const createNoteLabelSelect = screen.getByText("Other") as HTMLSelectElement;
+        fireEvent.change(createNoteLabelSelect, { target: { value: Label.study } });
+        expect(createNoteLabelSelect.value).toBe(Label.study);
+        fireEvent.change(createNoteLabelSelect, { target: { value: Label.work } });
+        expect(createNoteLabelSelect.value).toBe(Label.work);
+        fireEvent.change(createNoteLabelSelect, { target: { value: Label.personal } });
+        expect(createNoteLabelSelect.value).toBe(Label.personal);
+        fireEvent.change(createNoteLabelSelect, { target: { value: Label.other } });
+        expect(createNoteLabelSelect.value).toBe(Label.other);
     })
 });

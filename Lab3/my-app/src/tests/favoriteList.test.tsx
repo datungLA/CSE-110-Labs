@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import FavoriteList from "../components/FavoriteList";
 import { Note, Label } from "../components/types";
 import '@testing-library/jest-dom';
-describe("FavoriteList", () => {
+describe("Render FavoriteList", () => {
     it("renders an empty favorite list", () => {
         const mockNotes: Note[] = [];
         render(<FavoriteList notes={mockNotes} />);

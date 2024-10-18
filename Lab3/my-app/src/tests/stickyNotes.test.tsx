@@ -24,14 +24,14 @@ describe("Create StickyNote", () => {
         const createNoteLabelSelect = screen.getByText("Other") as HTMLSelectElement;
         const createNoteButton = screen.getByText("Create Note");
 
-        fireEvent.change(createNoteTitleInput, { target: { value: "New Note" } });
+        fireEvent.change(createNoteTitleInput, { target: { value: "asdfsadfsdf" } });
         fireEvent.change(createNoteContentTextarea, {
-            target: { value: "Note content" },
+            target: { value: "asdfasdfasdf" },
         });
         fireEvent.change(createNoteLabelSelect, { target: { value: Label.work } });
         fireEvent.click(createNoteButton);
-        const newNoteTitle = screen.getByText("New Note");
-        const newNoteContent = screen.getByText("Note content");
+        const newNoteTitle = screen.getByText("asdfsadfsdf");
+        const newNoteContent = screen.getByText("asdfasdfasdf");
         const newNoteLabel = screen.getByText("Work");
         expect(newNoteTitle).toBeInTheDocument();
         expect(newNoteContent).toBeInTheDocument();

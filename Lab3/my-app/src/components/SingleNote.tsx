@@ -26,7 +26,7 @@ const SingleNote = ({ note, notes, setNotes }: Props) => {
         <div key={note.id} className='note-item'>
             <form onSubmit={(e) => handleEdit(e, note.id)}>
                 <div className="notes-header">
-                    <span onClick={() => setEdit(true)}>
+                    <span onClick={() => setEdit(true)} data-testid="edit-button">
                         <AiFillEdit />
                     </span>
                     <span onClick={handleFavorite(note.id)}>

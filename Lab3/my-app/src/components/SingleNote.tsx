@@ -26,20 +26,20 @@ const SingleNote = ({ note, notes, setNotes }: Props) => {
         <div key={note.id} className='note-item'>
             <form onSubmit={(e) => handleEdit(e, note.id)}>
                 <div className="notes-header">
-                    <span onClick={() => setEdit(true)}>
+                    <span onClick={() => setEdit(true)} data-testid={`note-icon-${note.id}`} aria-label="Edit Note">
                         <AiFillEdit />
                     </span>
-                    <span onClick={handleFavorite(note.id)}>
+                    <span onClick={handleFavorite(note.id)} data-testid={`note-like-${note.id}`}>
                         {note.isLiked ? '❤️' : '♡'}
                     </span>
-                    <span onClick={handleDelete(note.id)}>
+                    <span onClick={handleDelete(note.id)} data-testid={`note-delete-${note.id}`}>
                         x
                     </span>
                 </div>
                 {!edit ? (
                     <>
-                        <h2>{note.title}</h2>
-                        <p>{note.content}</p>
+                        <h2 data-testid={`note-title-${note.id}`}>{note.title}</h2>
+                        <p data-testid={`note-content-${note.id}`}>{note.content}</p>
                         <p>{note.label}</p>
                     </>
                 ) : (
@@ -48,10 +48,14 @@ const SingleNote = ({ note, notes, setNotes }: Props) => {
                             type="text"
                             value={editNote.title}
                             onChange={(e) => setEditNote({ ...editNote, title: e.target.value })}
+                            placeholder="Note Title"
+                            data-testid={`note-title-${note.id}`} // Add test id for title input
                         />
                         <textarea
                             value={editNote.content}
                             onChange={(e) => setEditNote({ ...editNote, content: e.target.value })}
+                            placeholder="Note Content"
+                            data-testid={`note-content-${note.id}`} // Add test id for content textarea
                         />
                         <select
                             value={editNote.label}
@@ -62,12 +66,12 @@ const SingleNote = ({ note, notes, setNotes }: Props) => {
                             <option value={Label.work}>Work</option>
                             <option value={Label.other}>Other</option>
                         </select>
-                        <button type="submit">Save</button>
+                        <button type="submit" name="save">Save</button>
                     </>
                 )}
             </form>
         </div>
-    )
+    );    
 }
 
 export default SingleNote

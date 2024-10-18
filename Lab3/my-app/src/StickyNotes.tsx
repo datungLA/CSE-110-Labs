@@ -5,7 +5,7 @@ import { Note, initialNoteValue } from "./components/types";
 import { dummyNoteList } from './components/constants';
 export const StickyNotes = () => {
     const [note, setNote] = useState<Note>(initialNoteValue);
-    const [notes, setNotes] = useState<Note[]>(dummyNoteList.map(note => ({ ...note, isLiked: false, isDone: false })));
+    const [notes, setNotes] = useState<Note[]>([]);
     const handleAdd = (e: React.FormEvent) => {
         e.preventDefault();
         if (note) {
@@ -13,7 +13,6 @@ export const StickyNotes = () => {
             setNote(initialNoteValue);
         }
     }
-
     return (
         <div className="app-container">
             <InputField note={note} setNote={setNote} handleAdd={handleAdd} />

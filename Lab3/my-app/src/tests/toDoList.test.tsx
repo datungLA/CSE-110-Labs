@@ -27,5 +27,7 @@ describe("Test ToDoList component", () => {
         fireEvent.click(items[1]);
         itemBoughtTitle = screen.getByText("Items bought: 0")
         expect(itemBoughtTitle).toBeInTheDocument();
+        let errorItemBoughtTitle = screen.queryByText("Item bought: 1");
+        expect(errorItemBoughtTitle)
     })
 })

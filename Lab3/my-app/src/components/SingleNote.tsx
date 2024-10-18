@@ -26,10 +26,10 @@ const SingleNote = ({ note, notes, setNotes }: Props) => {
         <div key={note.id} className='note-item'>
             <form onSubmit={(e) => handleEdit(e, note.id)}>
                 <div className="notes-header">
-                    <span onClick={() => setEdit(true)} data-testid="edit-button">
+                    <span onClick={() => setEdit(true)} aria-label="Edit Note">
                         <AiFillEdit />
                     </span>
-                    <span onClick={handleFavorite(note.id)}>
+                    <span onClick={handleFavorite(note.id)} aria-label="Like Note">
                         {note.isLiked ? '❤️' : '♡'}
                     </span>
                     <span onClick={handleDelete(note.id)}>
@@ -48,10 +48,12 @@ const SingleNote = ({ note, notes, setNotes }: Props) => {
                             type="text"
                             value={editNote.title}
                             onChange={(e) => setEditNote({ ...editNote, title: e.target.value })}
+                            data-testid={`note-title-${note.id}`}
                         />
                         <textarea
                             value={editNote.content}
                             onChange={(e) => setEditNote({ ...editNote, content: e.target.value })}
+                            data-testid={`note-content-${note.id}`}
                         />
                         <select
                             value={editNote.label}

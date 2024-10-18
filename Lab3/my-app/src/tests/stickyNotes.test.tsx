@@ -2,7 +2,6 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { StickyNotes } from "../StickyNotes";
 import { Label } from "../components/types";
 import '@testing-library/jest-dom';
-import exp from "constants";
 describe("Create StickyNote", () => {
     test("renders create note form", () => {
         render(<StickyNotes />);
